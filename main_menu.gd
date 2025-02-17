@@ -8,14 +8,14 @@ extends Control
 var AnimePanel = preload("res://src/panel_main_anime.tscn")
 var EpisodeButton = preload("res://src/button_episode.tscn")
 
-var new_anime : Dictionary = {"website":"animeflv"}
+var new_anime : Dictionary = {}
 var Cnf := ConfigFile.new()
 var cnf_path : String = "user://database.ini"
 var _err : int
 var _url_anime : String
 
 func _ready():
-	$HTTPRequest.request_completed.connect(_on_request_completed)
+	
 	var _total_anime : int = 0
 	## leer database
 	if Cnf.load(cnf_path) == OK:
@@ -51,6 +51,8 @@ func add_anime_to_db(anime_data:Dictionary) -> int:
 	Cnf.set_value(anime_data["uuid"], "description", anime_data["description"])
 	Cnf.set_value(anime_data["uuid"], "img_url", anime_data["img_url"])
 	Cnf.set_value(anime_data["uuid"], "img_filename", anime_data["img_filename"])
+	Cnf.set_value(anime_data["uuid"], "auto_update_episodes_info", false)
+	
 	_err = Cnf.save(cnf_path)
 	
 	if _err == OK:
@@ -64,6 +66,7 @@ func add_anime_to_tree(animedata:Dictionary,uuid:String) -> void:
 	AnimePanelInstance.name = uuid
 	AnimePanelInstance.uuid = uuid
 	AnimePanelInstance.anime_data = animedata
+	AnimePanelInstance.auto_update_episodes_info = Cnf.get_value(uuid,"auto_update_episodes_info",false)
 	AnimePanelInstance.popup_requested.connect(_on_animepanel_seemore_requested)
 	%GridAnimeItems.add_child(AnimePanelInstance)
 
@@ -91,43 +94,102 @@ func get_anime_data(url_or_buffer:Variant) -> Dictionary:
 	var _txt : String
 	var result : RegExMatch
 	
-	var regex = RegEx.new()
-	regex.compile("(?<=var anime_info = )(.*?)(?=;)")
-	## Si se encuentra una coincidencia
-	result = regex.search(xml_str_dumped)
-	if result:
-		_txt = result.get_string()
-		## ["4105","Ao no Exorcist: Yosuga-hen","ao-no-exorcist-yosugahen","2025-02-22"]
-		var _dict_animeinfo : Array = str_to_var(_txt)
-		_dict["name"] = _dict_animeinfo[1]
-		_dict["img_url"] = "https://www3.animeflv.net/uploads/animes/covers/%d.jpg" % [int(_dict_animeinfo[0])]
-		_dict["img_filename"] = "animeflv_%d.jpg" % [int(_dict_animeinfo[0])]
-	else:
-		OS.alert("Error scrapping")
-		return {}
+	if Config.current_website == "animeflv":
+		var regex = RegEx.new()
+		regex.compile("(?<=var anime_info = )(.*?)(?=;)")
+		## Si se encuentra una coincidencia
+		result = regex.search(xml_str_dumped)
+		if result:
+			_txt = result.get_string()
+			## ["4105","Ao no Exorcist: Yosuga-hen","ao-no-exorcist-yosugahen","2025-02-22"]
+			var _dict_animeinfo : Array = str_to_var(_txt)
+			_dict["name"] = _dict_animeinfo[1]
+			_dict["img_url"] = "https://www3.animeflv.net/uploads/animes/covers/%d.jpg" % [int(_dict_animeinfo[0])]
+			_dict["img_filename"] = "animeflv_%d.jpg" % [int(_dict_animeinfo[0])]
+		else:
+			OS.alert("Error scrapping")
+			return {}
+		## descripcion
+		var regex_c = RegEx.new()
+		regex_c.compile('(?<=content=")(.*?)(?=">)')
+		## Si se encuentra una coincidencia
+		result = regex_c.search(xml_str_dumped)
+		if result:
+			_dict["description"] = result.get_string().strip_edges()
 	
-	var regex_c = RegEx.new()
-	regex_c.compile('(?<=content=")(.*?)(?=">)')
-	## Si se encuentra una coincidencia
-	result = regex_c.search(xml_str_dumped)
-	if result:
-		_dict["description"] = result.get_string().strip_edges()
+	elif Config.current_website == "animeflvone":
+		var _ide_string : String
+		var _title : String
+		var _description : String
+		var _img_url : String
+		var _img_filepath : String
+		
+		var regex = RegEx.new()
+		regex.compile("(?<=<h1>Ver )(.*?)(?= Sub español latino Online</h1>)")
+		## Si se encuentra una coincidencia
+		result = regex.search(xml_str_dumped)
+		if result:
+			_txt = result.get_string()
+			_title = _txt
+		else:
+			OS.alert("Error scrapping title")
+			return {}
+		
+		var regex2 = RegEx.new()
+		regex2.compile('(?<=<div class="tx"><p>)(.*?)(?=</p>)')
+		## Si se encuentra una coincidencia
+		result = regex2.search(xml_str_dumped)
+		if result:
+			_txt = result.get_string()
+			_description = _txt
+		
+		var regex3 = RegEx.new()
+		regex3.compile('(?<=data-sl=")(.*?)(?=")')
+		## Si se encuentra una coincidencia
+		result = regex3.search(xml_str_dumped)
+		if result:
+			_ide_string = result.get_string()
+			_img_url = "https://vww.animeflv.one/cdn/img/anime/%s.webp" % [_ide_string]
+			_img_filepath = "animeflvone_%s.webp" % [_ide_string]
+		
+		_dict["name"] = _title
+		_dict["img_url"] = _img_url
+		_dict["img_filename"] = _img_filepath
+		_dict["description"] = _description
 	
 	return _dict
 
 func _on_animepanel_seemore_requested(anime_data:Dictionary) -> void:
 	for n in %VBxEpisodes.get_children():
 		n.queue_free()
+	var panelnode : Node = get_node(
+		"%%GridAnimeItems/%s" % [anime_data["tree_node_name"]]
+	)
 	%CtrlAnimeDetails.visible = true
+	Config.current_website = anime_data["website"]
 	%LblTitle.text = anime_data["name"]
 	%LblDescription.text = anime_data["description"]
 	%TextureCoverAnime.texture = anime_data["cover_texture"]
 	%LblCurrentEpisode.text = "%d" % [Cnf.get_value(anime_data["uuid"],"current_episode",0)]
 	%BtnGoAnimeUrl.editor_description = anime_data["anime_url"]
 	%BtnDeleteAnime.editor_description = anime_data["tree_node_name"]
-	var _episodes_data : Dictionary = get_node(
-		"%%GridAnimeItems/%s" % [%BtnDeleteAnime.editor_description]
-	).episodes_data
+	var _episodes_data : Dictionary = panelnode.episodes_data
+	var _auto_update : bool = Cnf.get_value(anime_data["uuid"], "auto_update_episodes_info", true)
+	panelnode.auto_update_episodes_info = _auto_update
+	%ChkBtnAutoUpdateEpisodesInfo.set_pressed_no_signal(_auto_update)
+	%ChkBtnAutoUpdateEpisodesInfo.editor_description = anime_data["uuid"]
+	
+	if _auto_update == true:
+		_refresh_episodes_list(anime_data["uuid"],_episodes_data)
+	else:
+		%LblEpisodesResume.text = "Loading..."
+		panelnode.refresh_episodes_data()
+		await panelnode.episodes_info_refreshed
+		_refresh_episodes_list(%ChkBtnAutoUpdateEpisodesInfo.editor_description,panelnode.episodes_data)
+
+func _refresh_episodes_list(uuid:String,_episodes_data:Dictionary) -> void:
+	for n in %VBxEpisodes.get_children():
+		n.queue_free()
 	## "e_int":["Titulo","url"]
 	for n in _episodes_data:
 		var EpisodeButtonInstance = EpisodeButton.instantiate()
@@ -136,7 +198,7 @@ func _on_animepanel_seemore_requested(anime_data:Dictionary) -> void:
 		EpisodeButtonInstance.url = _episodes_data[n][1]
 		EpisodeButtonInstance.watched.connect(
 			self._on_episode_watched.bind(
-				EpisodeButtonInstance.number,anime_data["uuid"]
+				EpisodeButtonInstance.number,uuid
 			)
 		)
 		%VBxEpisodes.add_child(EpisodeButtonInstance)
@@ -146,16 +208,18 @@ func _on_episode_watched(number:int,uuid:String) -> void:
 	_change_current_episode(str(number),uuid)
 
 ## request web de anime a añadir
-func _on_request_completed(_result, response_code, _headers, body) -> void:
+func _on_request_completed(_result, response_code, _headers, body, http_req_node:HTTPRequest) -> void:
 	%CtrlLoading.visible = false
 	#response code: HTTPClient.RESPONSE_OK == 200
 	if response_code != HTTPClient.RESPONSE_OK:
 		OS.alert("Error scanning website Error Response code:%d"%[response_code])
+		http_req_node.queue_free()
 		return
 	new_anime.merge(get_anime_data(body))
 	_err = add_anime_to_db(new_anime)
 	if _err != OK:
 		OS.alert("Error adding anime:%d"%[_err])
+	http_req_node.queue_free()
 
 ## -------- botones inferiores
 ## salir de app
@@ -236,6 +300,7 @@ func _on_btn_increase_current_episode_pressed() -> void:
 
 ## añadir anime de la url proporcionada
 func _on_btn_add_anime_url_pressed() -> void:
+	new_anime = {}
 	%CtrlAddNewAnime.visible = false
 	%CtrlLoading.visible = true
 	var anime_url : String = %LnUrl.text.strip_edges()
@@ -254,6 +319,13 @@ func _on_btn_add_anime_url_pressed() -> void:
 		anime_url = anime_url.replace("https://m.","https://www3.")
 		## sitioweb utilizado
 		new_anime["website"] = "animeflv"
+		Config.current_website = "animeflv"
+	elif anime_url.contains("animeflv.one"):
+		## url para visitar
+		new_anime["anime_url"] = anime_url
+		## sitioweb utilizado
+		new_anime["website"] = "animeflvone"
+		Config.current_website = "animeflvone"
 	else:
 		%CtrlLoading.visible = false
 		OS.alert("Website can't be scanned.")
@@ -267,11 +339,15 @@ func _on_btn_add_anime_url_pressed() -> void:
 		add_anime_to_db(new_anime)
 		%CtrlLoading.visible = false
 	else:
+		var http_req := HTTPRequest.new()
+		add_child(http_req)
+		http_req.request_completed.connect(_on_request_completed.bind(http_req))
 		var headers : PackedStringArray
 		## añadir user agent de pc para forzar la version pc en animeflv si estamos en mobile
 		if OS.has_feature("mobile") == true:
 			headers = ["User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0"]
-		$HTTPRequest.request(anime_url,headers)
+		print("Requesting: ",anime_url)
+		http_req.request(anime_url,headers)
 
 
 func _on_chk_btn_hide_up_to_date_toggled(toggled_on: bool) -> void:
@@ -298,7 +374,32 @@ func _on_website_goto(website: String) -> void:
 				url = "https://m.animeflv.net/"
 			else:
 				url = "https://www3.animeflv.net/"
+		"animeflvone":
+			url = "https://vww.animeflv.one/"
 	if Config.Cnf.get_value("main","use_webvideocastapp",false) == true:
 		OS.shell_open("wvc-x-callback://open?url=%s"%[url])
 	else:
 		OS.shell_open(url)
+
+
+func _on_chk_btn_auto_update_episodes_info_toggled(toggled_on: bool) -> void:
+	var panelnode : Node = get_node(
+		"%%GridAnimeItems/%s" % [%ChkBtnAutoUpdateEpisodesInfo.editor_description]
+	)
+	panelnode.auto_update_episodes_info = toggled_on
+	Cnf.set_value(
+		%ChkBtnAutoUpdateEpisodesInfo.editor_description,
+		"auto_update_episodes_info", toggled_on
+	)
+	Cnf.save(cnf_path)
+	
+	if toggled_on == true:
+		%LblEpisodesResume.text = "Loading..."
+		panelnode.refresh_episodes_data()
+		await panelnode.episodes_info_refreshed
+		_refresh_episodes_list(%ChkBtnAutoUpdateEpisodesInfo.editor_description,panelnode.episodes_data)
+	
+	get_node(
+		"%%GridAnimeItems/%s" % [%ChkBtnAutoUpdateEpisodesInfo.editor_description]
+	).refresh_main_panel_info()
+	
