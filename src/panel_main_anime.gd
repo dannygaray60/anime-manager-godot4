@@ -79,7 +79,7 @@ func check_anime_cover() -> void:
 func refresh_episodes_data() -> void:
 	var headers : PackedStringArray
 	var _anime_url = anime_data["anime_url"]
-	if Config.current_website == "animeflv":
+	if anime_data["website"] == "animeflv":
 		_anime_url = _anime_url.replace("https://m.","https://www3.")
 	
 	## añadir user agent de pc para forzar la version pc en animeflv si estamos en mobile
@@ -121,7 +121,7 @@ func get_anime_episodes(url_or_buffer:Variant) -> Dictionary:
 	
 	var xml_str_dumped : String = xml.root.dump_str()
 	
-	if Config.current_website == "animeflv":
+	if anime_data["website"] == "animeflv":
 		var regex = RegEx.new()
 		regex.compile("(?<=var anime_info = )(.*?)(?=;)")
 		## Si se encuentra una coincidencia
@@ -150,7 +150,7 @@ func get_anime_episodes(url_or_buffer:Variant) -> Dictionary:
 					_url_to_return % [_animestring_id_url,n[0]]
 				]
 	
-	elif Config.current_website == "animeflvone":
+	elif anime_data["website"] == "animeflvone":
 		var regex = RegEx.new()
 		regex.compile(r'var eps = \[(.*?)\];')
 		## Si se encuentra una coincidencia
