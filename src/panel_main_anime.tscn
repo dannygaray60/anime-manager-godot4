@@ -113,7 +113,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_cu2ex")
 theme_override_styles/hover = ExtResource("2_ednk8")
 theme_override_styles/pressed = ExtResource("3_43y6t")
 theme_override_styles/normal = ExtResource("2_ednk8")
-text = "New Chapter!"
+text = "New episode!"
 icon = ExtResource("2_k66hx")
 expand_icon = true
 
