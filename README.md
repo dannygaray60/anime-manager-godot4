@@ -10,5 +10,4 @@ The application will redirect to the page to watch using the default web browser
 At the moment it only supports “animeflv.net” and "animeflv.one" links.
 
 
-![Screenshoot1](https://raw.githubusercontent.com/dannygaray60/anime-manager-godot4/refs/heads/main/repo_img/scrshoot1.jpg)
-![Screenshoot1](https://raw.githubusercontent.com/dannygaray60/anime-manager-godot4/refs/heads/main/repo_img/scrshoot2.jpg)
+![Screenshoot](https://raw.githubusercontent.com/dannygaray60/anime-manager-godot4/refs/heads/main/repo_img/scrshootmix.jpg)
