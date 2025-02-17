@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b24kht5dqu84d"]
+
+[ext_resource type="StyleBox" uid="uid://b45baaodeiir5" path="res://assets/tres/button_main_theme.tres" id="1_fjkb4"]
+[ext_resource type="Script" path="res://src/button_episode.gd" id="1_jr7q2"]
+[ext_resource type="StyleBox" uid="uid://drusftomn32qk" path="res://assets/tres/button_main_pressed_theme.tres" id="2_r0ds8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyyd6"]
+
+[node name="ButtonEpisode" type="HBoxContainer"]
+offset_right = 459.0
+offset_bottom = 56.0
+script = ExtResource("1_jr7q2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.187176, 0.187176, 0.187176, 1)
+theme_override_font_sizes/font_size = 37
+text = "Chapter 1"
+text_overrun_behavior = 3
+
+[node name="BtnGo" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyyd6")
+theme_override_styles/hover = ExtResource("1_fjkb4")
+theme_override_styles/pressed = ExtResource("2_r0ds8")
+theme_override_styles/normal = ExtResource("1_fjkb4")
+text = "Watch 999"
+expand_icon = true
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="BtnGo" to="." method="_on_btn_go_pressed"]

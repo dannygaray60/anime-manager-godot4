@@ -1,0 +1,1162 @@
+[gd_scene load_steps=39 format=3 uid="uid://d2hk6vs0hn3hu"]
+
+[ext_resource type="Texture2D" uid="uid://d28xnlnmommru" path="res://assets/icons/add_circle_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="1_0y8x7"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_438jl"]
+[ext_resource type="Texture2D" uid="uid://clymjwpd7ee28" path="res://assets/icons/settings_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="2_01qlu"]
+[ext_resource type="Texture2D" uid="uid://7rlc8u7lx32n" path="res://assets/beidou_wallpaper.jpg" id="2_ejhh0"]
+[ext_resource type="Texture2D" uid="uid://dydpr0jvsvjut" path="res://assets/icons/apps_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="2_kwauy"]
+[ext_resource type="Texture2D" uid="uid://b4mwvgnck65o4" path="res://assets/card.jpg" id="2_stkep"]
+[ext_resource type="Texture2D" uid="uid://2ucntqygr8w4" path="res://assets/shadow_gradient_0.png" id="3_gl46f"]
+[ext_resource type="Texture2D" uid="uid://be6gulgm75tyr" path="res://assets/banner.png" id="3_oofj5"]
+[ext_resource type="Texture2D" uid="uid://bupqh6hri1ois" path="res://assets/icons/autorenew_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="4_ylgcv"]
+[ext_resource type="Texture2D" uid="uid://fc6ljlouthow" path="res://assets/icons/exit_to_app_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="6_xpkm6"]
+[ext_resource type="StyleBox" uid="uid://b45baaodeiir5" path="res://assets/tres/button_main_theme.tres" id="7_7rav6"]
+[ext_resource type="StyleBox" uid="uid://drusftomn32qk" path="res://assets/tres/button_main_pressed_theme.tres" id="8_o4box"]
+[ext_resource type="Texture2D" uid="uid://clopt8jeyva3a" path="res://assets/icons/content_paste_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="9_eggqj"]
+[ext_resource type="Texture2D" uid="uid://b2drwc4w0g7h8" path="res://assets/icons/open_in_new_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="13_wrm5k"]
+[ext_resource type="Texture2D" uid="uid://bq22fttmfcy5f" path="res://assets/icons/chevron_left_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="14_mbkoj"]
+[ext_resource type="Texture2D" uid="uid://dxvhis7sobhet" path="res://assets/icons/chevron_right_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="15_6s3wc"]
+[ext_resource type="Texture2D" uid="uid://cietlrqoqxjd8" path="res://assets/icons/delete_forever_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="16_6pg3d"]
+[ext_resource type="Texture2D" uid="uid://b4vaay5fwevh6" path="res://assets/name_card.png" id="18_r66mx"]
+[ext_resource type="Texture2D" uid="uid://beowynepvdsp8" path="res://assets/icons/close_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="19_pei2p"]
+[ext_resource type="Texture2D" uid="uid://dtod250dpocqw" path="res://assets/icons/check_box_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="20_yrs5i"]
+[ext_resource type="Texture2D" uid="uid://bgt6tcon88cek" path="res://assets/icons/check_box_outline_blank_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="21_xgxxx"]
+[ext_resource type="Texture2D" uid="uid://dhk7tc765fgeq" path="res://assets/websites/animeflv.png" id="22_rkged"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvkv2"]
+atlas = ExtResource("2_ejhh0")
+region = Rect2(0, 167.471, 800, 1122.17)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oots4"]
+texture = ExtResource("3_oofj5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0rfv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7k0o"]
+bg_color = Color(0.403922, 0.313726, 0.643137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxg4u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evsbk"]
+bg_color = Color(0, 0, 0, 0.690196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpsny"]
+bg_color = Color(0, 0, 0, 0.690196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvbhu"]
+bg_color = Color(0, 0, 0, 0.690196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77asv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xcy4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbwfx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.173404, 0.123315, 0.299961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj5eq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3b5e3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ik6l6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itlt1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guhwx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_438jl")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bvkv2")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.576471)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 125.0
+grow_horizontal = 2
+texture = ExtResource("3_gl46f")
+
+[node name="Shadow2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.576471)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -219.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_gl46f")
+flip_v = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.615686)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 131.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+scroll_deadzone = 10
+
+[node name="GridAnimeItems" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="TopPanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(684, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -342.0
+offset_top = 9.0
+offset_right = 342.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oots4")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopPanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = -13
+
+[node name="Label2" type="Label" parent="TopPanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Anime Manager"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnOpenSettings" type="Button" parent="TopPanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.233674, 0.171036, 0.392701, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_disabled_color = Color(0.761585, 0.722096, 0.923448, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a0rfv")
+icon = ExtResource("2_01qlu")
+flat = true
+clip_text = true
+
+[node name="LblAnimeListResume" type="Label" parent="TopPanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.982502, 0.982257, 0.982502, 1)
+theme_override_font_sizes/font_size = 25
+text = "Anime list (00)"
+horizontal_alignment = 2
+
+[node name="BottomPanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m7k0o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BtnRefreshEpisodesData" type="Button" parent="BottomPanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.901961, 0.870588, 0.92549, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a0rfv")
+icon = ExtResource("4_ylgcv")
+flat = true
+
+[node name="BtnAddAnime" type="Button" parent="BottomPanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.901961, 0.870588, 0.92549, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a0rfv")
+icon = ExtResource("1_0y8x7")
+flat = true
+
+[node name="BtnSeeWebsites" type="Button" parent="BottomPanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.901961, 0.870588, 0.92549, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a0rfv")
+icon = ExtResource("2_kwauy")
+flat = true
+
+[node name="BtnExit" type="Button" parent="BottomPanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.901961, 0.870588, 0.92549, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a0rfv")
+icon = ExtResource("6_xpkm6")
+flat = true
+
+[node name="CtrlAddNewAnime" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnHideAddNewAnimePopup" type="Button" parent="CtrlAddNewAnime"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxg4u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_evsbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpsny")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvbhu")
+
+[node name="PanelContainer" type="PanelContainer" parent="CtrlAddNewAnime"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -219.0
+offset_right = 334.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_77asv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlAddNewAnime/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlAddNewAnime/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LnUrl" type="LineEdit" parent="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/selection_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 0.898039)
+theme_override_colors/font_placeholder_color = Color(0.810292, 0.780296, 0.940971, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.263927, 0.195284, 0.438838, 1)
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8xcy4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bbwfx")
+placeholder_text = "Anime URL"
+virtual_keyboard_type = 7
+caret_blink = true
+
+[node name="BtnPasteClipboard" type="Button" parent="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("9_eggqj")
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3b5e3")
+
+[node name="BtnAddAnimeURL" type="Button" parent="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ik6l6")
+theme_override_styles/hover = ExtResource("7_7rav6")
+theme_override_styles/pressed = ExtResource("8_o4box")
+theme_override_styles/normal = ExtResource("7_7rav6")
+text = "Add Anime"
+icon = ExtResource("1_0y8x7")
+expand_icon = true
+
+[node name="CtrlAnimeDetails" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnHideAnimeDetailsPopup" type="Button" parent="CtrlAnimeDetails"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxg4u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_evsbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpsny")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvbhu")
+
+[node name="PanelContainer" type="PanelContainer" parent="CtrlAnimeDetails"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -433.5
+offset_right = 334.0
+offset_bottom = 433.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_77asv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlAnimeDetails/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TextureCoverAnime" type="TextureRect" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("2_stkep")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -9
+
+[node name="LblTitle" type="Label" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 30
+text = "Anime title"
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 3
+
+[node name="LblDescription" type="Label" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.29219, 0.29219, 0.29219, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 26
+text = "Anime description"
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnGoAnimeUrl" type="Button" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("13_wrm5k")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -15
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="BtnDecreaseCurrentEpisode" type="Button" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("14_mbkoj")
+flat = true
+
+[node name="LblCurrentEpisode" type="Label" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "99"
+
+[node name="BtnIncreaseCurrentEpisode" type="Button" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("15_6s3wc")
+flat = true
+
+[node name="Label" type="Label" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.377919, 0.377919, 0.377919, 1)
+theme_override_font_sizes/font_size = 20
+text = "Current episode"
+horizontal_alignment = 1
+
+[node name="BtnDeleteAnime" type="Button" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.694772, 0.102864, 0.263485, 1)
+theme_override_colors/icon_pressed_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_colors/icon_hover_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("16_6pg3d")
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_itlt1")
+
+[node name="LblEpisodesResume" type="Label" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.187176, 0.187176, 0.187176, 1)
+theme_override_font_sizes/font_size = 37
+text = "Episodes list (99)"
+
+[node name="HSeparator2" type="HSeparator" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="ScrollContainerEpisodes" type="ScrollContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+scroll_deadzone = 10
+
+[node name="VBxEpisodes" type="VBoxContainer" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/ScrollContainerEpisodes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 7
+
+[node name="HSeparator3" type="HSeparator" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="CtrlSettings" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnCloseSettings" type="Button" parent="CtrlSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxg4u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_evsbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpsny")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvbhu")
+
+[node name="PanelContainer" type="PanelContainer" parent="CtrlSettings"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 334.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_77asv")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CtrlSettings/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CtrlSettings/PanelContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("18_r66mx")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.5
+offset_top = -40.0
+offset_right = 309.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnCloseSettings" type="Button" parent="CtrlSettings/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("19_pei2p")
+flat = true
+
+[node name="Label" type="Label" parent="CtrlSettings/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
+text = "Settings"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlSettings/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="ChkBtnUseWebVideoCastApp" type="CheckButton" parent="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.403922, 0.313726, 0.643137, 1)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.705795, 0.654542, 0.900663, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guhwx")
+theme_override_icons/checked = ExtResource("20_yrs5i")
+theme_override_icons/unchecked = ExtResource("21_xgxxx")
+text = "Use WebVideoCaster App"
+flat = true
+
+[node name="ChkBtnHideUpToDate" type="CheckButton" parent="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.403922, 0.313726, 0.643137, 1)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.705795, 0.654542, 0.900663, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guhwx")
+theme_override_icons/checked = ExtResource("20_yrs5i")
+theme_override_icons/unchecked = ExtResource("21_xgxxx")
+text = "Hide Up-to-date Anime"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlSettings/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TextureCoverAnime" type="TextureRect" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("2_stkep")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -9
+
+[node name="LblTitle" type="Label" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 30
+text = "Anime title"
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 3
+
+[node name="LblDescription" type="Label" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.29219, 0.29219, 0.29219, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 26
+text = "Anime description"
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnGoAnimeUrl" type="Button" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("13_wrm5k")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -15
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="BtnDecreaseCurrentEpisode" type="Button" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("14_mbkoj")
+flat = true
+
+[node name="LblCurrentEpisode" type="Label" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "99"
+
+[node name="BtnIncreaseCurrentEpisode" type="Button" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("15_6s3wc")
+flat = true
+
+[node name="Label" type="Label" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.377919, 0.377919, 0.377919, 1)
+theme_override_font_sizes/font_size = 20
+text = "Current episode"
+horizontal_alignment = 1
+
+[node name="BtnDeleteAnime" type="Button" parent="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.694772, 0.102864, 0.263485, 1)
+theme_override_colors/icon_pressed_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_colors/icon_hover_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("16_6pg3d")
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="CtrlSettings/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_itlt1")
+
+[node name="LblEpisodesResume" type="Label" parent="CtrlSettings/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.187176, 0.187176, 0.187176, 1)
+theme_override_font_sizes/font_size = 37
+text = "Episodes list (99)"
+
+[node name="HSeparator2" type="HSeparator" parent="CtrlSettings/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="ScrollContainerEpisodes" type="ScrollContainer" parent="CtrlSettings/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = 10
+
+[node name="VBxEpisodes" type="VBoxContainer" parent="CtrlSettings/PanelContainer/VBoxContainer/ScrollContainerEpisodes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 7
+
+[node name="HSeparator3" type="HSeparator" parent="CtrlSettings/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="CtrlVisitWebsites" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnCloseWebsites" type="Button" parent="CtrlVisitWebsites"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxg4u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_evsbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpsny")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvbhu")
+
+[node name="PanelContainer" type="PanelContainer" parent="CtrlVisitWebsites"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 334.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_77asv")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CtrlVisitWebsites/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("18_r66mx")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.5
+offset_top = -40.0
+offset_right = 309.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnCloseWebsites" type="Button" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("19_pei2p")
+flat = true
+
+[node name="Label" type="Label" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Supported Websites"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="TextureButton" type="TextureButton" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer2/MarginContainer/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("22_rkged")
+texture_pressed = ExtResource("22_rkged")
+texture_hover = ExtResource("22_rkged")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlVisitWebsites/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TextureCoverAnime" type="TextureRect" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("2_stkep")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -9
+
+[node name="LblTitle" type="Label" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 30
+text = "Anime title"
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 3
+
+[node name="LblDescription" type="Label" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.29219, 0.29219, 0.29219, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 26
+text = "Anime description"
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnGoAnimeUrl" type="Button" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("13_wrm5k")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -15
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="BtnDecreaseCurrentEpisode" type="Button" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("14_mbkoj")
+flat = true
+
+[node name="LblCurrentEpisode" type="Label" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "99"
+
+[node name="BtnIncreaseCurrentEpisode" type="Button" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("15_6s3wc")
+flat = true
+
+[node name="Label" type="Label" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.377919, 0.377919, 0.377919, 1)
+theme_override_font_sizes/font_size = 20
+text = "Current episode"
+horizontal_alignment = 1
+
+[node name="BtnDeleteAnime" type="Button" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.694772, 0.102864, 0.263485, 1)
+theme_override_colors/icon_pressed_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_colors/icon_hover_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.694118, 0.101961, 0.262745, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vj5eq")
+icon = ExtResource("16_6pg3d")
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_itlt1")
+
+[node name="LblEpisodesResume" type="Label" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.187176, 0.187176, 0.187176, 1)
+theme_override_font_sizes/font_size = 37
+text = "Episodes list (99)"
+
+[node name="HSeparator2" type="HSeparator" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="ScrollContainerEpisodes" type="ScrollContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = 10
+
+[node name="VBxEpisodes" type="VBoxContainer" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer/ScrollContainerEpisodes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 7
+
+[node name="HSeparator3" type="HSeparator" parent="CtrlVisitWebsites/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="CtrlLoading" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CtrlLoading"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.768627)
+
+[node name="Label" type="Label" parent="CtrlLoading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -11.5
+offset_right = 51.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
+text = "Please Wait..."
+
+[connection signal="pressed" from="TopPanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BtnOpenSettings" to="." method="_on_btn_open_settings_pressed"]
+[connection signal="pressed" from="BottomPanelContainer/HBoxContainer/BtnRefreshEpisodesData" to="." method="_on_btn_refresh_episodes_data_pressed"]
+[connection signal="pressed" from="BottomPanelContainer/HBoxContainer/BtnAddAnime" to="." method="_on_btn_add_anime_pressed"]
+[connection signal="pressed" from="BottomPanelContainer/HBoxContainer/BtnSeeWebsites" to="." method="_on_btn_see_websites_pressed"]
+[connection signal="pressed" from="BottomPanelContainer/HBoxContainer/BtnExit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="CtrlAddNewAnime/BtnHideAddNewAnimePopup" to="." method="_on_btn_hide_add_new_anime_popup_pressed"]
+[connection signal="pressed" from="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BtnPasteClipboard" to="." method="_on_btn_paste_clipboard_pressed"]
+[connection signal="pressed" from="CtrlAddNewAnime/PanelContainer/MarginContainer/VBoxContainer/BtnAddAnimeURL" to="." method="_on_btn_add_anime_url_pressed"]
+[connection signal="pressed" from="CtrlAnimeDetails/BtnHideAnimeDetailsPopup" to="." method="_on_btn_hide_anime_details_popup_pressed"]
+[connection signal="pressed" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnGoAnimeUrl" to="." method="_on_btn_go_anime_url_pressed"]
+[connection signal="pressed" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDecreaseCurrentEpisode" to="." method="_on_btn_decrease_current_episode_pressed"]
+[connection signal="pressed" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnIncreaseCurrentEpisode" to="." method="_on_btn_increase_current_episode_pressed"]
+[connection signal="pressed" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDeleteAnime" to="." method="_on_btn_delete_anime_pressed"]
+[connection signal="pressed" from="CtrlSettings/BtnCloseSettings" to="." method="_on_btn_close_settings_pressed"]
+[connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer/BtnCloseSettings" to="." method="_on_btn_close_settings_pressed"]
+[connection signal="toggled" from="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer/ChkBtnUseWebVideoCastApp" to="." method="_on_chk_btn_use_web_video_cast_app_toggled"]
+[connection signal="toggled" from="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer/ChkBtnHideUpToDate" to="." method="_on_chk_btn_hide_up_to_date_toggled"]
+[connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnGoAnimeUrl" to="." method="_on_btn_go_anime_url_pressed"]
+[connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDecreaseCurrentEpisode" to="." method="_on_btn_decrease_current_episode_pressed"]
+[connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnIncreaseCurrentEpisode" to="." method="_on_btn_increase_current_episode_pressed"]
+[connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDeleteAnime" to="." method="_on_btn_delete_anime_pressed"]
+[connection signal="pressed" from="CtrlVisitWebsites/BtnCloseWebsites" to="." method="_on_btn_close_websites_pressed"]
+[connection signal="pressed" from="CtrlVisitWebsites/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer/BtnCloseWebsites" to="." method="_on_btn_close_websites_pressed"]
+[connection signal="pressed" from="CtrlVisitWebsites/PanelContainer/VBoxContainer2/MarginContainer/GridContainer/TextureButton" to="." method="_on_website_goto" binds= ["animeflv"]]
+[connection signal="pressed" from="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnGoAnimeUrl" to="." method="_on_btn_go_anime_url_pressed"]
+[connection signal="pressed" from="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDecreaseCurrentEpisode" to="." method="_on_btn_decrease_current_episode_pressed"]
+[connection signal="pressed" from="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnIncreaseCurrentEpisode" to="." method="_on_btn_increase_current_episode_pressed"]
+[connection signal="pressed" from="CtrlVisitWebsites/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDeleteAnime" to="." method="_on_btn_delete_anime_pressed"]

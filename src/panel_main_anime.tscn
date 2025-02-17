@@ -1,0 +1,152 @@
+[gd_scene load_steps=14 format=3 uid="uid://jlmmk3njecl8"]
+
+[ext_resource type="Script" path="res://src/panel_main_anime.gd" id="1_jstuf"]
+[ext_resource type="StyleBox" uid="uid://b45baaodeiir5" path="res://assets/tres/button_main_theme.tres" id="2_ednk8"]
+[ext_resource type="Texture2D" uid="uid://dmxyga8w6k6cj" path="res://assets/icons/check_circle_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="2_k66hx"]
+[ext_resource type="Texture2D" uid="uid://bsci6av3u3fd5" path="res://assets/1000_80.jpg" id="2_ttmqt"]
+[ext_resource type="StyleBox" uid="uid://drusftomn32qk" path="res://assets/tres/button_main_pressed_theme.tres" id="3_43y6t"]
+[ext_resource type="Texture2D" uid="uid://2ucntqygr8w4" path="res://assets/shadow_gradient_0.png" id="3_fncks"]
+[ext_resource type="StyleBox" uid="uid://b4xq6r0f8lxj7" path="res://assets/tres/button_main_outline_theme.tres" id="7_6gkwp"]
+[ext_resource type="Texture2D" uid="uid://b3vp04gwaileb" path="res://assets/icons/done_all_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" id="8_213vh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufv6m"]
+bg_color = Color(0.901961, 0.870588, 0.92549, 0.941176)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrbin"]
+atlas = ExtResource("2_ttmqt")
+region = Rect2(0, 259.608, 1000, 583.32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cu2ex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jelkh"]
+bg_color = Color(0.858072, 0.668129, 0.893742, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey760"]
+bg_color = Color(0.356863, 0.286275, 0.564706, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="PanelContainer" type="PanelContainer" groups=["anime_panel"]]
+clip_children = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ufv6m")
+script = ExtResource("1_jstuf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureCover" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nrbin")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Shadow" type="TextureRect" parent="VBoxContainer/TextureCover"]
+modulate = Color(1, 1, 1, 0.592157)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_right = -0.0531616
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fncks")
+flip_v = true
+
+[node name="Shadow2" type="TextureRect" parent="VBoxContainer/TextureCover"]
+visible = false
+modulate = Color(1, 1, 1, 0.592157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -0.0531616
+offset_bottom = 100.0
+grow_horizontal = 2
+texture = ExtResource("3_fncks")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="LblTitle" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 26
+text = "Anime title..."
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 3
+
+[node name="BtnSeeMore" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cu2ex")
+theme_override_styles/hover = ExtResource("2_ednk8")
+theme_override_styles/pressed = ExtResource("3_43y6t")
+theme_override_styles/normal = ExtResource("2_ednk8")
+text = "New Chapter!"
+icon = ExtResource("2_k66hx")
+expand_icon = true
+
+[node name="BtnSeeMore2" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.396078, 0.313726, 0.623529, 1)
+theme_override_colors/icon_normal_color = Color(0.396078, 0.313726, 0.623529, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cu2ex")
+theme_override_styles/hover = ExtResource("2_ednk8")
+theme_override_styles/pressed = ExtResource("3_43y6t")
+theme_override_styles/normal = ExtResource("7_6gkwp")
+text = "Up to date"
+icon = ExtResource("8_213vh")
+expand_icon = true
+
+[node name="LblEpisodesInfo" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0862745, 0.0823529, 0.0901961, 1)
+text = "Current: 00  / Last: 00"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_jelkh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ey760")
+show_percentage = false
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/BtnSeeMore" to="." method="_on_btn_see_more_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/BtnSeeMore2" to="." method="_on_btn_see_more_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
