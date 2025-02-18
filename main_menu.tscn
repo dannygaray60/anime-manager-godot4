@@ -583,6 +583,25 @@ text = "Anime on air (auto-check new episodes)"
 flat = true
 alignment = 2
 
+[node name="ChkBtnWatchingNow" type="CheckButton" parent="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.403922, 0.313726, 0.643137, 1)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.705795, 0.654542, 0.900663, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guhwx")
+theme_override_icons/checked = ExtResource("20_yrs5i")
+theme_override_icons/unchecked = ExtResource("21_xgxxx")
+text = "Watching now"
+flat = true
+alignment = 2
+
 [node name="CtrlSettings" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -709,6 +728,24 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_guhwx")
 theme_override_icons/checked = ExtResource("20_yrs5i")
 theme_override_icons/unchecked = ExtResource("21_xgxxx")
 text = "Hide Up-to-date Anime"
+flat = true
+
+[node name="ChkBtnOnlyShowWatching" type="CheckButton" parent="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.403922, 0.313726, 0.643137, 1)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.705795, 0.654542, 0.900663, 1)
+theme_override_colors/icon_pressed_color = Color(0.403922, 0.313726, 0.643137, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guhwx")
+theme_override_icons/checked = ExtResource("20_yrs5i")
+theme_override_icons/unchecked = ExtResource("21_xgxxx")
+text = "Only show \"watching now\""
 flat = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CtrlSettings/PanelContainer"]
@@ -1173,10 +1210,12 @@ text = "Please Wait..."
 [connection signal="pressed" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnIncreaseCurrentEpisode" to="." method="_on_btn_increase_current_episode_pressed"]
 [connection signal="pressed" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDeleteAnime" to="." method="_on_btn_delete_anime_pressed"]
 [connection signal="toggled" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/ChkBtnAutoUpdateEpisodesInfo" to="." method="_on_chk_btn_auto_update_episodes_info_toggled"]
+[connection signal="toggled" from="CtrlAnimeDetails/PanelContainer/MarginContainer/VBoxContainer/ChkBtnWatchingNow" to="." method="_on_chk_btn_watching_now_toggled"]
 [connection signal="pressed" from="CtrlSettings/BtnCloseSettings" to="." method="_on_btn_close_settings_pressed"]
 [connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer2/TextureRect/HBoxContainer/BtnCloseSettings" to="." method="_on_btn_close_settings_pressed"]
 [connection signal="toggled" from="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer/ChkBtnUseWebVideoCastApp" to="." method="_on_chk_btn_use_web_video_cast_app_toggled"]
 [connection signal="toggled" from="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer/ChkBtnHideUpToDate" to="." method="_on_chk_btn_hide_up_to_date_toggled"]
+[connection signal="toggled" from="CtrlSettings/PanelContainer/VBoxContainer2/MarginContainer/VBoxContainer/ChkBtnOnlyShowWatching" to="." method="_on_chk_btn_only_show_watching_toggled"]
 [connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnGoAnimeUrl" to="." method="_on_btn_go_anime_url_pressed"]
 [connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnDecreaseCurrentEpisode" to="." method="_on_btn_decrease_current_episode_pressed"]
 [connection signal="pressed" from="CtrlSettings/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/BtnIncreaseCurrentEpisode" to="." method="_on_btn_increase_current_episode_pressed"]

@@ -41,6 +41,8 @@ corner_radius_bottom_left = 30
 
 [node name="PanelContainer" type="PanelContainer" groups=["anime_panel"]]
 clip_children = 2
+offset_right = 343.0
+offset_bottom = 425.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ufv6m")
 script = ExtResource("1_jstuf")
@@ -127,7 +129,7 @@ theme_override_colors/font_color = Color(0.396078, 0.313726, 0.623529, 1)
 theme_override_colors/icon_normal_color = Color(0.396078, 0.313726, 0.623529, 1)
 theme_override_font_sizes/font_size = 26
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cu2ex")
-theme_override_styles/hover = ExtResource("2_ednk8")
+theme_override_styles/hover = ExtResource("7_6gkwp")
 theme_override_styles/pressed = ExtResource("3_43y6t")
 theme_override_styles/normal = ExtResource("7_6gkwp")
 text = "Up to date"
@@ -143,7 +145,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cu2ex")
-theme_override_styles/hover = ExtResource("2_ednk8")
+theme_override_styles/hover = ExtResource("9_yejjd")
 theme_override_styles/pressed = ExtResource("3_43y6t")
 theme_override_styles/normal = ExtResource("9_yejjd")
 text = "Watch episodes"

@@ -6,8 +6,8 @@ signal episodes_info_refreshed
 var uuid : String
 var anime_data : Dictionary
 var episodes_data : Dictionary
-var _current_episode : int = 0
-var _last_episode : int = 1
+var current_episode : int = 0
+var last_episode : int = 0
 
 var auto_update_episodes_info : bool = true
 
@@ -17,46 +17,51 @@ func _ready() -> void:
 	if auto_update_episodes_info == true:
 		refresh_episodes_data()
 	else:
-		%LblEpisodesInfo.visible = false
-		%ProgressBar.visible = false
+		#%LblEpisodesInfo.visible = false
+		#%ProgressBar.visible = false
+		refresh_main_panel_info()
+		pass
 	#refresh_main_panel_info()
 
 func hide_if_uptodate() -> void:
 	if (
 		Config.Cnf.get_value("main","hide_uptodate",false) == true
-		and _current_episode >= _last_episode
+		and current_episode >= last_episode
 	):
 		visible = false
-	else:
+	elif Config.Cnf.get_value("main","only_show_watching_now",false) == false:
 		visible = true
 	
 
 func refresh_main_panel_info() -> void:
 
-	_current_episode = anime_data["current_episode"]
-	%LblEpisodesInfo.text = "Current: %d  / Last: %d" % [_current_episode,_last_episode]
+	current_episode = anime_data["current_episode"]
+	if anime_data.has("last_episode") == true:
+		last_episode = anime_data["last_episode"]
+	%LblEpisodesInfo.text = "Current: %d  / Last: %d" % [current_episode,last_episode]
 	
 	if auto_update_episodes_info == false:
 		%BtnSeeMore.visible = false
 		%BtnSeeMore2.visible = false
 		%BtnSeeMore3.visible = true
-		%LblEpisodesInfo.visible = false
-		%ProgressBar.visible = false
-	elif _current_episode < _last_episode:
+		#%LblEpisodesInfo.visible = false
+		#%ProgressBar.visible = false
+	elif current_episode < last_episode:
 		%BtnSeeMore.visible = true
 		%BtnSeeMore2.visible = false
 		%BtnSeeMore3.visible = false
-		%LblEpisodesInfo.visible = true
-		%ProgressBar.visible = true
+		#%LblEpisodesInfo.visible = true
+		#%ProgressBar.visible = true
 	else:
 		%BtnSeeMore.visible = false
 		%BtnSeeMore2.visible = true
 		%BtnSeeMore3.visible = false
-		%LblEpisodesInfo.visible = true
-		%ProgressBar.visible = true
+		#%LblEpisodesInfo.visible = true
+		#%ProgressBar.visible = true
 	
-	%ProgressBar.max_value = _last_episode
-	%ProgressBar.value = _current_episode
+	%ProgressBar.visible = true
+	%ProgressBar.max_value = last_episode
+	%ProgressBar.value = current_episode
 	
 	hide_if_uptodate()
 
@@ -99,7 +104,8 @@ func _on_http_img_request_completed(result: int, response_code: int, headers: Pa
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result == OK and response_code == HTTPClient.RESPONSE_OK:
 		episodes_data = get_anime_episodes(body)
-		_last_episode = episodes_data.size()
+		last_episode = episodes_data.size()
+		anime_data["last_episode"] = last_episode
 		refresh_main_panel_info()
 		emit_signal("episodes_info_refreshed")
 	else:

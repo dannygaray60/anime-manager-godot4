@@ -28,10 +28,12 @@ func _ready():
 			if _anime_data_to_send.is_empty() == false:
 				add_anime_to_tree(_anime_data_to_send[uuid_anime],uuid_anime)
 			_total_anime += 1
+	show_anime_panels_if_watching()
 	%LblAnimeListResume.text = "Anime list (%d)" % [_total_anime]
 	
 	%ChkBtnUseWebVideoCastApp.set_pressed_no_signal(Config.Cnf.get_value("main","use_webvideocastapp",false)) 
 	%ChkBtnHideUpToDate.set_pressed_no_signal(Config.Cnf.get_value("main","hide_uptodate",false))
+	%ChkBtnOnlyShowWatching.set_pressed_no_signal(Config.Cnf.get_value("main","only_show_watching_now",false))
 
 ## añadir anime a db local
 ## { "website": "animeflv", "uuid": "bf6cb088-84aa-4d3c-835a-19b49029a7e7", "name": "UniteUp! Uni:Birth", "img_url": "https://www3.animeflv.net/uploads/animes/covers/4127.jpg", "img_filename": "animeflv_4127.jpg", "description": "Segunda temporada UniteUp!" }
@@ -48,10 +50,12 @@ func add_anime_to_db(anime_data:Dictionary) -> int:
 	Cnf.set_value(anime_data["uuid"], "website", anime_data["website"])
 	Cnf.set_value(anime_data["uuid"], "anime_url", anime_data["anime_url"])
 	Cnf.set_value(anime_data["uuid"], "current_episode", 0)
+	Cnf.set_value(anime_data["uuid"], "last_episode", 0)
 	Cnf.set_value(anime_data["uuid"], "description", anime_data["description"])
 	Cnf.set_value(anime_data["uuid"], "img_url", anime_data["img_url"])
 	Cnf.set_value(anime_data["uuid"], "img_filename", anime_data["img_filename"])
 	Cnf.set_value(anime_data["uuid"], "auto_update_episodes_info", false)
+	Cnf.set_value(anime_data["uuid"], "watching_now", true)
 	
 	_err = Cnf.save(cnf_path)
 	
@@ -59,6 +63,11 @@ func add_anime_to_db(anime_data:Dictionary) -> int:
 		add_anime_to_tree(anime_data,anime_data["uuid"])
 	
 	return _err
+
+func show_anime_panels_if_watching() -> void:
+	if Config.Cnf.get_value("main","only_show_watching_now",false) == true:
+		for n in %GridAnimeItems.get_children():
+			n.visible = Cnf.get_value(n.name,"watching_now",true)
 
 ## añadir anime panel al tree de la app
 func add_anime_to_tree(animedata:Dictionary,uuid:String) -> void:
@@ -178,6 +187,8 @@ func _on_animepanel_seemore_requested(anime_data:Dictionary) -> void:
 	panelnode.auto_update_episodes_info = _auto_update
 	%ChkBtnAutoUpdateEpisodesInfo.set_pressed_no_signal(_auto_update)
 	%ChkBtnAutoUpdateEpisodesInfo.editor_description = anime_data["uuid"]
+	%ChkBtnWatchingNow.set_pressed_no_signal(Cnf.get_value(anime_data["uuid"],"watching_now",true))
+	%ChkBtnWatchingNow.editor_description = anime_data["uuid"]
 	
 	if _auto_update == true:
 		_refresh_episodes_list(anime_data["uuid"],_episodes_data)
@@ -185,6 +196,8 @@ func _on_animepanel_seemore_requested(anime_data:Dictionary) -> void:
 		%LblEpisodesResume.text = "Loading..."
 		panelnode.refresh_episodes_data()
 		await panelnode.episodes_info_refreshed
+		Cnf.set_value(anime_data["uuid"],"last_episode",panelnode.last_episode)
+		Cnf.save(cnf_path)
 		_refresh_episodes_list(%ChkBtnAutoUpdateEpisodesInfo.editor_description,panelnode.episodes_data)
 
 func _refresh_episodes_list(uuid:String,_episodes_data:Dictionary) -> void:
@@ -353,6 +366,7 @@ func _on_btn_add_anime_url_pressed() -> void:
 func _on_chk_btn_hide_up_to_date_toggled(toggled_on: bool) -> void:
 	Config.Cnf.set_value("main","hide_uptodate",toggled_on)
 	Config.Cnf.save(Config.cnf_path)
+	show_anime_panels_if_watching()
 	get_tree().call_group("anime_panel","hide_if_uptodate")
 func _on_chk_btn_use_web_video_cast_app_toggled(toggled_on: bool) -> void:
 	Config.Cnf.set_value("main","use_webvideocastapp",toggled_on)
@@ -397,9 +411,22 @@ func _on_chk_btn_auto_update_episodes_info_toggled(toggled_on: bool) -> void:
 		%LblEpisodesResume.text = "Loading..."
 		panelnode.refresh_episodes_data()
 		await panelnode.episodes_info_refreshed
+		Cnf.set_value(%ChkBtnAutoUpdateEpisodesInfo.editor_description,"last_episode",panelnode.last_episode)
+		Cnf.save(cnf_path)
 		_refresh_episodes_list(%ChkBtnAutoUpdateEpisodesInfo.editor_description,panelnode.episodes_data)
 	
 	get_node(
 		"%%GridAnimeItems/%s" % [%ChkBtnAutoUpdateEpisodesInfo.editor_description]
 	).refresh_main_panel_info()
 	
+
+
+func _on_chk_btn_watching_now_toggled(toggled_on: bool) -> void:
+	Cnf.set_value(%ChkBtnWatchingNow.editor_description,"watching_now",toggled_on)
+	Cnf.save(cnf_path)
+
+
+func _on_chk_btn_only_show_watching_toggled(toggled_on: bool) -> void:
+	Config.Cnf.set_value("main","only_show_watching_now",toggled_on)
+	Config.Cnf.save(Config.cnf_path)
+	get_tree().reload_current_scene()
